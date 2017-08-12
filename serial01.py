@@ -3,7 +3,7 @@ import logme
 
 logme.logme(name='serial', filename='trace.log', msg='Imposto la seriale...')
 ser = serial.Serial('/dev/serial0', 115200, serial.EIGHTBITS, serial.PARITY_NONE, serial.STOPBITS_ONE, xonxoff=True)
-
+msg=''
 print(ser.name)
 
 logme.logme(name='serial', filename='trace.log', msg='Scrivo sulla seriale...')
