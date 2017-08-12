@@ -21,3 +21,5 @@ def logme(name='main', filename='log.log', msg='This is a message'):
     logger.addHandler(handler)
 
     logger.info(msg)
+    handler.close()
+    
