@@ -8,5 +8,5 @@ ser = serial.Serial('/dev/serial0', 115200, serial.EIGHTBITS, serial.PARITY_NONE
 
 while True:
     for i in range(33,126):
-        a=ascii(i)
-        ser.write(a)
+
+        ser.write(ascii(i).encode('ascii'))
