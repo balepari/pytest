@@ -10,3 +10,5 @@ while True:
     for i in range(33,126):
 
         ser.write(ascii(i).encode('ascii'))
+    ser.write(b'\r\n')
+    
