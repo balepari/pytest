@@ -1,17 +1,29 @@
 import serial
-import logme
+import logging
 
-logme.logme(name='serial', filename='trace.log', msg='Imposto la seriale...')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# create a file handler
+handler = logging.FileHandler('trace.log')
+handler.setLevel(logging.INFO)
+
+# create a logging format
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+
+# add the handlers to the logger
+logger.addHandler(handler)
+
+logger.info('Imposto la seriale...')
 ser = serial.Serial('/dev/serial0', 115200, serial.EIGHTBITS, serial.PARITY_NONE, serial.STOPBITS_ONE, xonxoff=True)
-msg=''
 print(ser.name)
-
-logme.logme(name='serial', filename='trace.log', msg='Scrivo sulla seriale...')
+logger.info('Scrivo sulla seriale...')
 ser.write(b'Hello World!')
-logme.logme(name='serial', filename='trace.log', msg='Svuoto il buffer...')
+logger.info('Svuoto il buffer...')
 ser.flush()
 #letto = ser.read(8)
 #print(letto)
-logme.logme(name='serial', filename='trace.log', msg='Chiudo la seriale...')
+logger.info('Chiudo la seriale...')
 ser.close()
-logme.logme(name='serial', filename='trace.log', msg='Termino...')
+logger.info('Termino...')
