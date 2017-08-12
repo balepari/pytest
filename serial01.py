@@ -4,4 +4,7 @@ ser = serial.Serial('/dev/serial0', 115200, serial.EIGHTBITS, serial.PARITY_NONE
 
 print(ser.name)
 ser.write(b'Hello World!')
+ser.flush()
+letto = ser.readline()
+print(letto)
 ser.close()
