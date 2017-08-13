@@ -4,9 +4,13 @@
 import serial.tools.list_ports
 
 
-print('\n\n\nLooking for serial ports on your system...')
+print('\n\n\nLooking for serial ports on your system...\n\n\n')
 
 pa = list(serial.tools.list_ports.comports())
+
+if pa.count()!=0:
+    print('Found %d elements', pa.count())
+
 
 for port in pa:
     print('Name: ', port.name)
@@ -20,4 +24,5 @@ for port in pa:
     print('Product: ', port.product)
     print('SeriaNumber: ', port.serial_number)
     print('Vid: ', port.vid)
+    print('========================================\n\n')
 
