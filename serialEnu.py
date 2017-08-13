@@ -8,8 +8,8 @@ print('\n\n\nLooking for serial ports on your system...\n\n\n')
 
 pa = list(serial.tools.list_ports.comports())
 
-if pa.count()!=0:
-    print('Found %d elements', pa.count())
+if len(pa) != 0:
+    print('Found %d elements\n\n', len(pa))
 
 
 for port in pa:
