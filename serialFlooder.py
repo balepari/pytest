@@ -146,6 +146,7 @@ print('flowctrl = \'%s' % flowctrl + '\'\n')
 # this is the main
 
 ser = serial.Serial(comport, int(speed), int(databit), parity, int(stopbit), True )
+print('\nIs serial port opened? ',ser.isOpen())
 
 
 """
