@@ -150,7 +150,7 @@ ser = serial.Serial(comport, int(speed), int(databit), parity, int(stopbit), Tru
 
 """
 ser = serial.Serial('/dev/serial0', 115200, serial.EIGHTBITS, serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,xonxoff=True)
-
+"""
 while True:
     try:
         for i in range(33,126):
@@ -160,5 +160,5 @@ while True:
         print('Pressed an interruption key (Ctrl+C)... Stoppping serial communication!')
         break
     ser.close()
-"""
+
     
