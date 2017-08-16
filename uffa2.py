@@ -1,0 +1,10 @@
+com = input('\nNow, please, insert che correct device name for the serial port to use: ')
+print('\nSerial speed:\n1) 9600\n2) 14400\n3) 19200\n4) 28800\n5) 38400\n6) 57600\n7) 115200')
+vel = input('\nSelect a speed (1,2,3,4,5,6 or 7): ')
+databit = input('\nEnter data bits (5, 6, 7 or 8): ')
+parit = input('\nEnter parity (E)ven, (O)dd, (N)one, (M)ark, (S)pace: ')
+stopb = input('\nStopbits\n1) 1 stopbit\n2) 1,5 stopbits\n3) 2 stopbits\n Enter how many stopbits you want: ')
+flowctrl = input('\nDo you want software flow control Xon/Xoff (Y/N)?: ')
+flowctrl.upper()
+
+a = dict(com=,% com)
