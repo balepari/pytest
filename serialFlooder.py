@@ -169,4 +169,4 @@ while True:
     except KeyboardInterrupt:
         print('Pressed an interruption key (Ctrl+C)... Stoppping serial communication!')
         break
-    ser.close()
+ser.close()
