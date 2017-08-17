@@ -147,10 +147,10 @@ print('flowctrl = \'%s' % flowctrl + '\'\n')
 
 ser = serial.Serial()
 ser.port = comport
-ser.baudrate = int(speed)
-ser.bytesize = int(databit)
-ser.parity = parity
-ser.stopbits = int(stopbit)
+ser.baudrate = 115200 #int(speed)
+ser.bytesize = serial.EIGHTBITS #(databit)
+ser.parity = serial.PARITY_NONE #parity
+ser.stopbits = 1 #int(stopbit)
 ser.xonxoff =  True
 print('\nIs serial port opened? ',ser.isOpen())
 ser.open()
