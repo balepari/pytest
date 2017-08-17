@@ -163,8 +163,8 @@ ser = serial.Serial('/dev/serial0', 115200, serial.EIGHTBITS, serial.PARITY_NONE
 while True:
     try:
         for i in range(33,126):
-            print(chr(i).encode('utf-8'))
-            ser.write(chr(i))
+            print(chr(i))
+            ser.write(chr(i).encode('utf-8'))
         ser.write(b'\r\n')
     except KeyboardInterrupt:
         print('Pressed an interruption key (Ctrl+C)... Stoppping serial communication!')
