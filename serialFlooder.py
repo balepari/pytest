@@ -164,7 +164,7 @@ while True:
     try:
         for i in range(33,126):
             print(str(i))
-            ser.write(b"\'str(i)\'")
+            ser.write(str(i).encode())
         ser.write(b'\n')
     except KeyboardInterrupt:
         print('Pressed an interruption key (Ctrl+C)... Stoppping serial communication!')
