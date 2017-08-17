@@ -145,7 +145,15 @@ print('flowctrl = \'%s' % flowctrl + '\'\n')
 
 # this is the main
 
-ser = serial.Serial(comport, int(speed), int(databit), parity, int(stopbit), True )
+ser = serial.Serial()
+ser.port = comport
+ser.baudrate = int(speed)
+ser.bytesize = int(databit)
+ser.parity = parity
+ser.stopbits = int(stopbit)
+ser.xonxoff =  True
+print('\nIs serial port opened? ',ser.isOpen())
+ser.open()
 print('\nIs serial port opened? ',ser.isOpen())
 
 
@@ -155,11 +163,10 @@ ser = serial.Serial('/dev/serial0', 115200, serial.EIGHTBITS, serial.PARITY_NONE
 while True:
     try:
         for i in range(33,126):
+            print(str(i))
             ser.write(b"\'str(i)\'")
         ser.write(b'\n')
     except KeyboardInterrupt:
         print('Pressed an interruption key (Ctrl+C)... Stoppping serial communication!')
         break
     ser.close()
-
-    
