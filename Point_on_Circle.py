@@ -2,6 +2,7 @@
 # y = cy + r * sin(a)
 
 import math
+import time
 
 
 def point_on_circle(center_x, center_y, radius, angle):
@@ -13,7 +14,7 @@ def point_on_circle(center_x, center_y, radius, angle):
     # angle      value of angle to calculate the point
 
     px = float(center_x) + float(radius) * math.cos(math.radians(float(angle)))
-    py = float(center_y) + float(radius) * math.cos(math.radians(float(angle)))
+    py = float(center_y) + float(radius) * math.sin(math.radians(float(angle)))
 
     return px, py
 
@@ -22,11 +23,15 @@ def point_on_circle(center_x, center_y, radius, angle):
 
 cnx = input('Enter center X: ')
 cny = input('Enter center Y: ')
-ray = input('Enter circle radius in deegrees: ')
-ang = input('Enter angle to calulate: ')
+ray = input('Enter circle radius: ')
+ang = input('Enter angle in deegrees to calulate (only integer not decimals): ')
+step = input('Enter time between calculation: ')
 
-qqq = point_on_circle(cnx, cny, ray, ang)
+slot = range(0, 360, int(ang))
 
-print(type(qqq))
-print('X = ', )
-print('Y = ', )
+for e in slot:
+    Point = point_on_circle(cnx, cny, ray, e)
+    print("Angle = %d\tX = %.4f\tY = %.4f" % (e, Point[0], Point[1]))
+    time.sleep(float(step))
+
+
